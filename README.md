@@ -1,4 +1,4 @@
-# Node - List Calls Tutorial
+# Java - List Calls Tutorial
 
 This project serves as a guide to help you build an application with Persephony. Specifically, the project will:
 
@@ -10,13 +10,7 @@ To get started using a persephony account, follow the instructions [here](https:
 
 ## Setting up Tutorial
 
-1. Install the node packages necessary using command:
-
-   ```bash
-   $ yarn install
-   ```
-
-2. Configure environment variables.
+1. Configure environment variables.
 
    | ENV VARIABLE            | DESCRIPTION                                                                                                                                                                             |
    | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
