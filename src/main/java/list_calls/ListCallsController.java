@@ -31,10 +31,10 @@ package main.java.list_calls;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.vailsys.persephony.api.PersyClient;
-import com.vailsys.persephony.api.PersyException;
-import com.vailsys.persephony.api.call.Call;
-import com.vailsys.persephony.api.call.CallList;
+import com.vailsys.freeclimb.api.FreeClimbClient;
+import com.vailsys.freeclimb.api.FreeClimbException;
+import com.vailsys.freeclimb.api.call.Call;
+import com.vailsys.freeclimb.api.call.CallList;
 
 import java.util.ArrayList;
 
@@ -46,13 +46,13 @@ public class ListCallsController {
 
   @RequestMapping("/calls")
   public ArrayList<Call> listCalls() {
-    PersyClient client;
+    FreeClimbClient client;
     CallList callsList;
 
     try {
-      // Create PersyClient object
-      // accountId & authToken can be found under API keys on the Persephony Dashboard
-      client = new PersyClient(accountId, authToken);
+      // Create FreeClimbClient object
+      // accountId & authToken can be found under API keys on the FreeClimb Dashboard
+      client = new FreeClimbClient(accountId, authToken);
       callsList = client.calls.get(); // Retrieve the paginated list of calls
 
       // Don't bother trying to grab more pages if there is only one or zero
@@ -71,7 +71,7 @@ public class ListCallsController {
       }
 
       return allCalls;
-    } catch (PersyException pe) {
+    } catch (FreeClimbException pe) {
       System.out.println(pe.getMessage());
     }
     return null;
