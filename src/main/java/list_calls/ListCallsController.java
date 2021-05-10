@@ -40,9 +40,9 @@ import java.util.ArrayList;
 
 @RestController
 public class ListCallsController {
-  // Get accountID and authToken from environment variables
+  // Get accountID and apiKey from environment variables
   private String accountId = System.getenv("ACCOUNT_ID");
-  private String authToken = System.getenv("AUTH_TOKEN");
+  private String apiKey = System.getenv("API_KEY");
 
   @RequestMapping("/calls")
   public ArrayList<Call> listCalls() {
@@ -51,8 +51,8 @@ public class ListCallsController {
 
     try {
       // Create FreeClimbClient object
-      // accountId & authToken can be found under API keys on the FreeClimb Dashboard
-      client = new FreeClimbClient(accountId, authToken);
+      // accountId & apiKey can be found under API keys on the FreeClimb Dashboard
+      client = new FreeClimbClient(accountId, apiKey);
       callsList = client.calls.get(); // Retrieve the paginated list of calls
 
       // Don't bother trying to grab more pages if there is only one or zero
